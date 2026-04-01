@@ -1,5 +1,3 @@
-import { track } from "@vercel/analytics/generic";
-
 const generatorSection = document.getElementById("generator-section");
 const loadingSection = document.getElementById("loading-section");
 const resultSection = document.getElementById("result-section");
@@ -54,8 +52,6 @@ function handleFileSelect(file) {
   selectedFile = file;
   fileNameDisplay.textContent = file.name;
 
-  track("photo_uploaded", { file_type: file.type });
-
   // Show preview
   const reader = new FileReader();
   reader.onload = (e) => {
@@ -78,8 +74,6 @@ generateBtn.addEventListener("click", function () {
     alert("Please upload a photo to continue.");
     return;
   }
-
-  track("partner_generated");
 
   // Hide generator section, show loading
   generatorSection.classList.add("hidden");
@@ -123,8 +117,6 @@ generateBtn.addEventListener("click", function () {
     loadingSection.classList.add("hidden");
     resultSection.classList.remove("hidden");
 
-    track("result_revealed");
-
     // Display April Fools image instead
     resultImage.src = "april fools.webp";
 
@@ -137,8 +129,6 @@ generateBtn.addEventListener("click", function () {
 });
 
 startNewBtn.addEventListener("click", function () {
-  track("new_search_started");
-
   // Reset and go back to generator
   resultSection.classList.add("hidden");
   generatorSection.classList.remove("hidden");

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Partner Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#e4e2e1",
+            "on-primary-fixed": "#39422c",
+            "surface-bright": "#fbf9f4",
+            "error-container": "#fe8b70",
+            "inverse-primary": "#f3fedd",
+            "surface-tint": "#586249",
+            "surface-variant": "#e2e3d9",
+            "primary-fixed-dim": "#ced8b9",
+            "on-surface-variant": "#5e6058",
+            "tertiary": "#954931",
+            "tertiary-fixed-dim": "#e78b6e",
+            "surface-container-high": "#e8e9e0",
+            "surface-container": "#efeee6",
+            "secondary-dim": "#535353",
+            "on-primary-fixed-variant": "#555f46",
+            "surface-container-highest": "#e2e3d9",
+            "on-secondary-fixed-variant": "#5c5b5b",
+            "error": "#9e422c",
+            "on-secondary-fixed": "#3f3f3f",
+            "on-primary": "#f2fcdb",
+            "on-tertiary-fixed-variant": "#652510",
+            "on-error-container": "#742410",
+            "background": "#fbf9f4",
+            "surface": "#fbf9f4",
+            "surface-dim": "#d9dbcf",
+            "primary-fixed": "#dce7c7",
+            "surface-container-low": "#f5f4ed",
+            "tertiary-dim": "#863e27",
+            "outline-variant": "#b1b3a9",
+            "on-surface": "#31332c",
+            "inverse-surface": "#0e0e0c",
+            "on-error": "#fff7f6",
+            "tertiary-container": "#f7987a",
+            "primary-container": "#dce7c7",
+            "on-tertiary-fixed": "#330900",
+            "error-dim": "#5c1202",
+            "on-tertiary": "#fff7f5",
+            "secondary": "#5f5f5f",
+            "tertiary-fixed": "#f7987a",
+            "secondary-container": "#e4e2e1",
+            "primary": "#586249",
+            "on-background": "#31332c",
+            "on-primary-container": "#4c553d",
+            "secondary-fixed-dim": "#d6d4d3",
+            "on-secondary-container": "#525252",
+            "inverse-on-surface": "#9e9d99",
+            "primary-dim": "#4c563e",
+            "on-tertiary-container": "#591d08",
+            "on-secondary": "#fbf8f8",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#797c73"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #fbf9f4;
+    }
+    h1, h2, h3, .serif-font, .serif-headline {
+      font-family: 'Noto Serif', serif;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+  <!-- TopAppBar -->
+  <header class="flex justify-between items-center px-6 py-4 w-full bg-[#fbf9f4] dark:bg-[#1c1c1a] top-0 z-50 fixed">
+    <div></div>
+    <h1 class="text-xl font-serif italic text-[#586249] dark:text-[#8c967a]">Partner</h1>
+    <div></div>
+  </header>
+
+  <!-- Main Content Canvas -->
+  <main class="flex-grow flex flex-col items-center justify-center px-6 pb-8 pt-20">
+    <!-- Generator Section -->
+    <div id="generator-section" class="max-w-2xl w-full flex flex-col items-center space-y-12">
+      <!-- Hero Statement -->
+      <div class="text-center space-y-4">
+        <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface tracking-tight leading-tight">
+          Find the soul that <br /> <span class="italic text-primary">complements yours.</span>
+        </h2>
+        <div class="w-12 h-[1px] bg-outline-variant/30 mx-auto"></div>
+      </div>
+
+      <!-- Generator Area -->
+      <div class="w-full bg-surface-container-low rounded-lg p-8 md:p-12 space-y-8 relative overflow-hidden">
+        <!-- Subtle Gradient Background -->
+        <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-primary-container to-transparent pointer-events-none"></div>
+        <div class="relative z-10 w-full space-y-8">
+          <div class="space-y-3">
+            <label class="block text-xl md:text-2xl font-headline italic text-on-surface-variant px-2">
+              Upload a photo of yourself
+            </label>
+            <div 
+              id="upload-dropzone"
+              class="w-full bg-surface-container-lowest border-2 border-dashed border-outline-variant/30 rounded-lg px-6 py-10 transition-all hover:border-primary/50 hover:bg-surface-container-low cursor-pointer flex flex-col items-center justify-center gap-4"
+            >
+              <input type="file" id="photo-upload" accept="image/*" class="hidden" />
+              <div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl text-primary" data-icon="add_photo_alternate">add_photo_alternate</span>
+              </div>
+              <div class="text-center">
+                <p class="font-body text-lg text-on-surface font-medium">Click to upload or drag & drop</p>
+                <p class="font-body text-sm text-on-surface-variant/70 mt-1">PNG, JPG up to 10MB</p>
+              </div>
+              <div id="preview-container" class="hidden w-full flex flex-col items-center gap-3">
+                <img id="preview-image" class="max-h-48 rounded-lg shadow-md object-contain" alt="Preview" />
+                <p id="file-name" class="text-sm font-body text-on-surface-variant"></p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p class="text-sm font-body text-on-surface-variant/70 italic max-w-[240px]">
+              A photo is all we need to find your match.
+            </p>
+            <button id="generate-btn" class="bg-primary hover:bg-primary-dim text-on-primary px-10 py-4 rounded-xl font-body font-semibold tracking-wide transition-all shadow-[0_8px_32px_rgba(49,51,44,0.06)] active:scale-95 flex items-center gap-3">
+              <span>Generate</span>
+              <span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Section -->
+    <div id="loading-section" class="hidden max-w-2xl w-full flex flex-col items-center space-y-12">
+      <div class="text-center space-y-8">
+        <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface tracking-tight leading-tight">
+          Finding your <br /> <span class="italic text-primary">perfect match...</span>
+        </h2>
+      </div>
+
+      <div class="w-full flex flex-col items-center justify-center space-y-6">
+        <div class="relative w-16 h-16">
+          <div class="absolute inset-0 rounded-full border-3 border-outline-variant/20"></div>
+          <div class="absolute inset-0 rounded-full border-3 border-transparent border-t-primary border-r-primary animate-spin"></div>
+        </div>
+        <div class="text-center space-y-2">
+          <p id="status-message" class="text-lg font-body font-semibold text-on-surface">Analyzing preferences...</p>
+          <p id="countdown" class="text-sm font-body text-on-surface-variant"><span id="countdown-num">10</span>s</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="result-section" class="hidden max-w-2xl w-full flex flex-col items-start">
+      <!-- Result Intro Section -->
+      <section class="mb-10 w-full">
+        <h2 class="serif-headline text-4xl md:text-5xl font-bold text-primary tracking-tight leading-tight">
+          The Connection
+        </h2>
+        <div class="mt-4 h-1 w-12 bg-tertiary rounded-full"></div>
+      </section>
+
+      <!-- Elegant Result Card -->
+      <div class="w-full bg-surface-container-lowest rounded-lg shadow-[0_8px_32px_rgba(49,51,44,0.06)] overflow-hidden relative group">
+        <div class="aspect-[4/5] w-full overflow-hidden">
+          <img
+            id="result-image"
+            alt="Your perfect partner"
+            class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
+            src=""
+          />
+        </div>
+        <!-- Card Details -->
+        <div class="p-8 md:p-12 text-left">
+          <h3 class="serif-headline text-3xl text-on-surface mb-3 italic">Your Connection</h3>
+          <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-md">
+            A soul that complements yours. This is what you were looking for.
+          </p>
+        </div>
+      </div>
+
+      <!-- Asymmetric Action Row -->
+      <div class="mt-12 w-full flex flex-row items-center justify-between">
+        <div class="flex gap-4">
+          <!-- Share Button -->
+          <button class="bg-surface-container-highest hover:bg-surface-container-high text-on-surface px-6 py-3 rounded-xl font-body font-medium flex items-center gap-2 transition-all active:scale-95">
+            <span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+            Share
+          </button>
+        </div>
+        <!-- Utility link -->
+        <button id="start-new-btn" class="text-primary font-body text-sm font-semibold hover:underline hidden md:block">
+          Start a New Search
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
